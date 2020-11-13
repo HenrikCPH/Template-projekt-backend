@@ -1,7 +1,12 @@
 package facades;
 
 import entities.RenameMe;
+import webscraper.TagCounter;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -18,12 +23,6 @@ public class FacadeExample {
     //Private Constructor to ensure Singleton
     private FacadeExample() {}
     
-    
-    /**
-     * 
-     * @param _emf
-     * @return an instance of this facade class.
-     */
     public static FacadeExample getFacadeExample(EntityManagerFactory _emf) {
         if (instance == null) {
             emf = _emf;
